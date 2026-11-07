@@ -16,8 +16,15 @@ cask "venelx" do
 
   app "VenelX Studio.app"
 
-  uninstall launchctl: "com.venelx.studio.engine",
-            quit:      "com.venelx.studio"
+  # The engine is a per-user LaunchAgent the app writes and restarts itself (see the app's EngineAgent). Stop only
+  # that user agent here: `launchctl:` would also look in the system domain and ask for a password.
+  uninstall quit:   "com.venelx.studio",
+            script: {
+              executable:   "/bin/launchctl",
+              args:         ["bootout", "gui/#{Process.uid}/com.venelx.studio.engine"],
+              must_succeed: false,
+            },
+            trash:  "~/Library/LaunchAgents/com.venelx.studio.engine.plist"
 
   zap trash: [
     "~/Library/Application Support/VenelX Studio",
