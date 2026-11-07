@@ -4,7 +4,7 @@ cask "venelx" do
 
   url "https://github.com/VenelX/homebrew-tap/releases/download/v#{version}/VenelX-Studio-#{version}.dmg"
   name "VenelX Studio"
-  desc "Turns a Mac into a team's mobile release machine"
+  desc "Turns your computer into a team's mobile release machine"
   homepage "https://studio.venelx.com/"
 
   livecheck do
@@ -12,12 +12,12 @@ cask "venelx" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "VenelX Studio.app"
 
-  uninstall quit:      "com.venelx.studio",
-            launchctl: "com.venelx.studio.engine"
+  uninstall launchctl: "com.venelx.studio.engine",
+            quit:      "com.venelx.studio"
 
   zap trash: [
     "~/Library/Application Support/VenelX Studio",

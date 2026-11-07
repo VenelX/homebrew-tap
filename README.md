@@ -11,15 +11,13 @@ your team's mobile release machine. The app's source isn't here; this repository
 **Homebrew:**
 
 ```bash
-brew install --cask venelx/tap/venelx
-```
-
-or tap once and then use the short name:
-
-```bash
 brew tap venelx/tap
+brew trust venelx/tap
 brew install --cask venelx
 ```
+
+Homebrew asks you to trust a tap before it installs anything from it (`brew trust`), once per Mac. After that,
+`brew install --cask venelx/tap/venelx` also works.
 
 Update with `brew upgrade --cask venelx`; remove with `brew uninstall --cask venelx` (add `--zap` to also delete
 its settings and data).
