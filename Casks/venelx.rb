@@ -1,6 +1,6 @@
 cask "venelx" do
-  version "0.1.8"
-  sha256 "2acc950a576a60155d0d52d3c266a4dc2f5a3d7ab70710825cca5f26929ab1e3"
+  version "0.1.9"
+  sha256 "a18d8be501845c2afdb3ca56936481c627a1ba939ec7f58219ed979203698242"
 
   url "https://github.com/VenelX/homebrew-tap/releases/download/v#{version}/VenelX-Studio-#{version}.dmg"
   name "VenelX Studio"
